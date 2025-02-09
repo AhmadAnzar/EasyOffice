@@ -1,3 +1,4 @@
+
 const removeBgButton = document.getElementById("removeBgButton");
 const imageInput = document.getElementById("imageInput");
 const resultImage = document.getElementById("resultImage");

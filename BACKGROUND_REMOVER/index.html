@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Background</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        padding: 20px;
+        background-image: url("bg_bg.webp");
+      }
+
+      .cool-button {
+        background: linear-gradient(135deg, #ff6a00, #ee0979);
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        margin: 20px auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-left: 20px;
+      }
+
+      .cool-button::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.3) 0%,
+          rgba(0, 0, 0, 0) 70%
+        );
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0;
+      }
+
+      .cool-button:hover::before {
+        opacity: 1;
+      }
+
+      .cool-button:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+      }
+
+      .cool-button:active {
+        transform: scale(0.95);
+        box-shadow: 0 2px 10px rgba(255, 105, 180, 0.3);
+      }
+      .high {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .high h1 {
+        font-size: 2.5rem;
+        color: #4caf50;
+        margin-bottom: 15px;
+      }
+
+      #imageInput {
+        margin-top: 10px;
+        padding: 8px;
+        font-size: 1rem;
+        border: 2px solid #4caf50;
+        border-radius: 5px;
+        background-color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      #imageInput:hover {
+        border-color: #45a049;
+      }
+
+      #removeBgButton {
+        margin-top: 15px;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      #removeBgButton:hover {
+        background-color: #45a049;
+      }
+
+      #output {
+        margin-top: 30px;
+        text-align: center;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      #output p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 15px;
+      }
+
+      #cropCanvas {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 400px;
+      }
+
+      #resultImage {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+        max-height: 400px;
+        border-radius: 5px;
+      }
+
+      #downloadButton {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        background-color: #c91400;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      #downloadButton:hover {
+        background-color: #b11300;
+      }
+
+      label {
+        font-size: 1rem;
+        margin-top: 20px;
+        color: #333;
+      }
+
+      input[type="range"] {
+        margin-top: 10px;
+        width: 100%;
+        max-width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="../index.html"
+      ><button class="cool-button">Return Home</button>
+    </a>
+    <div class="high">
+      <h1>AI Background Remover with Cropping</h1>
+      <input type="file" id="imageInput" accept="image/*" />
+      <button id="removeBgButton">Remove Background</button>
+    </div>
+    <div id="output">
+      <p>Processed image will appear here:</p>
+      <canvas id="cropCanvas"></canvas>
+      <img id="resultImage" alt="Processed Image" />
+    </div>
+    <button id="downloadButton">Download Image</button>
+
+    <label for="brightness" style="font-size: 25px; color: rgb(0, 255, 8)"
+      >Brightness Adjustment:</label
+    >
+    <input type="range" id="brightness" min="0" max="200" value="100" />
+
+    <script src="script.js"></script>
+  </body>
+</html>

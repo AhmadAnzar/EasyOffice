@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="your-logo.png" />
+    <style>
+      /* Reset and Universal Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        line-height: 1.6;
+        background: #f4f4f4;
+        filter: invert(1);
+        background: linear-gradient(to right, #73aee1, #00f2fe);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Main Container */
+      .service-container {
+        padding: 50px;
+        text-align: center;
+
+        color: white;
+        height: 100vh;
+      }
+
+      h1 {
+        font-size: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+        color: #ffd700;
+      }
+
+      .service-section {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 50px;
+      }
+
+      .service-card {
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #333;
+        width: 250px;
+        margin: 20px;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .service-card img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+      }
+
+      .service-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .service-card p {
+        font-size: 1rem;
+        color: #444;
+        margin-bottom: 15px;
+      }
+
+      .service-card a {
+        text-decoration: none;
+        color: #ff63a5;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      .service-card a:hover {
+        color: #6e7bff;
+      }
+      img {
+        filter: invert(1); /* This will make images appear normal again */
+      }
+      nav {
+        background-image: transparent;
+
+        background-size: 200% auto;
+        animation: slide 15s linear infinite;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 10px 0;
+        margin-bottom: 20px;
+      }
+
+      @keyframes slide {
+        to {
+          background-position: right center;
+        }
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      nav li {
+        margin: 0 20px;
+      }
+
+      nav a {
+        display: block;
+        color: #fffcfc;
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        position: relative;
+        top: 0;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      nav a:hover:before {
+        transform: translateY(0);
+      }
+
+      nav a:hover {
+        background-color: #d0d021;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="what.html">Services</a></li>
+      </ul>
+    </nav>
+    <!-- Service Section -->
+    <div class="service-container">
+      <h1>Our Services</h1>
+      <div class="service-section">
+        <!-- QR Code Generator -->
+        <div class="service-card">
+          <img src="image.png" alt="QR Code Generator" />
+          <h3>QR Code Generator</h3>
+          <p>
+            Easily generate QR codes for your URLs, texts, or any data you'd
+            like to encode. Just input the desired data and get a scannable code
+            in seconds.
+          </p>
+          <a href="QR_CODE/index.html">Learn More</a>
+        </div>
+
+        <!-- Calculator -->
+        <div class="service-card">
+          <img src="image (9).png" alt="Calculator" />
+          <h3>Calculator</h3>
+          <p>
+            Perform basic and scientific calculations directly from your
+            browser. This tool supports arithmetic, trigonometry, logarithms,
+            and more.
+          </p>
+          <a href="calculator/index.html">Learn More</a>
+        </div>
+
+        <!-- Background Remover -->
+        <div class="service-card">
+          <img src="image (2).png" alt="Weather App" />
+          <h3>Background Remover</h3>
+          <p>
+            Remove the background from an image using advanced image editing
+            tools. This tool allows you to remove the background, adjust the
+            brightness, download the image.
+          </p>
+          <a href="BACKGROUND_REMOVER/index.html">Learn More</a>
+        </div>
+      </div>
+      <div class="service-section">
+        <!-- Currency Converter -->
+        <div class="service-card">
+          <img src="image__1_-removebg-preview.png" alt="Currency Converter" />
+          <h3>Currency Converter</h3>
+          <p>
+            Convert currencies instantly with real-time exchange rates. Whether
+            traveling or making transactions, get the most accurate conversion
+            rates.
+          </p>
+          <a href="CURRECNY CONVERTOR/index.html">Learn More</a>
+        </div>
+
+        <!-- Time Zone Converter  -->
+        <div class="service-card">
+          <img src="image (6).png  " alt="To-Do List" />
+          <h3>TimeZone Converter</h3>
+          <p>
+            Convert between time zones for accurate scheduling and planning. Get
+            the right timezone for your events and activities.
+          </p>
+          <a href="CLOCKS/indexx.html">Learn More</a>
+        </div>
+
+        <!-- Master Link -->
+        <div class="service-card">
+          <img src="image (5).png" alt="Calendar" />
+          <h3>Master Link</h3>
+          <p>
+            Find all your links in one place. Whether you're looking for a
+            specific website or a specific service, we've got you covered.
+          </p>
+          <a href="LINK_PROVIDER/index.html">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

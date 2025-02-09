@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: linear-gradient(
+          135deg,
+          #1a1a1a,
+          #2c3e50
+        ); /* Dark, professional gradient */
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      h1 {
+        font-size: 45px;
+        text-align: center;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+        background: linear-gradient(to right, #fff700, #ffcc00);
+        /* Gradient applied */
+        -webkit-background-clip: text; /* For Safari */
+        background-clip: text; /* For modern browsers */
+        color: transparent; /* Make the text color transparent to show the gradient */
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        max-width: 600px;
+        width: 90%;
+      }
+
+      .currency-converter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 30px;
+      }
+
+      .input-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+      }
+
+      .currency-dropdown,
+      #amt {
+        padding: 15px;
+        font-size: 20px;
+        border-radius: 10px;
+        border: none;
+        width: 200px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .convert-btn {
+        background: linear-gradient(to right, #ffd700, #ffa500);
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 25px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .convert-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg, #ae9715, #ee8308);
+      }
+
+      .result-container {
+        font-size: 24px;
+        font-weight: bold;
+        color: #24c8cb;
+        margin-top: 20px;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        min-width: 300px;
+        text-align: center;
+      }
+
+      span {
+        font-size: 24px;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      .cool-button {
+        background: linear-gradient(135deg, #ff6a00, #ee0979);
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        margin: 20px auto;
+        position: absolute;
+        margin-left: 20px;
+        top: 10px;
+        left: 10px;
+      }
+
+      .cool-button::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.3) 0%,
+          rgba(0, 0, 0, 0) 70%
+        );
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0;
+      }
+
+      .cool-button:hover::before {
+        opacity: 1;
+      }
+
+      .cool-button:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+      }
+
+      .cool-button:active {
+        transform: scale(0.95);
+        box-shadow: 0 2px 10px rgba(255, 105, 180, 0.3);
+      }
+
+      select {
+        background-color: #ffd700; /* Golden yellow */
+        color: black; /* Text color */
+        border: 2px solid #ffa500; /* Orange border */
+        padding: 8px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      select option {
+        background-color: #ffffe0; /* Light yellow */
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="../index.html"
+      ><button class="cool-button">Return Home</button>
+    </a>
+    <div class="container">
+      <h1>Currency Converter</h1>
+      <div class="currency-converter">
+        <div class="input-container">
+          <input type="number" id="amt" placeholder="Enter Amount" />
+        </div>
+        <div class="input-container">
+          <select id="from" class="currency-dropdown">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="INR">INR</option>
+          </select>
+          <span>to</span>
+          <select id="to" class="currency-dropdown">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="INR">INR</option>
+          </select>
+        </div>
+        <button id="convertBtn" class="convert-btn">Convert</button>
+        <div id="resultContainer" class="result-container"></div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("convertBtn")
+        .addEventListener("click", function () {
+          const amount = parseFloat(document.getElementById("amt").value);
+          const currencyFrom = document.getElementById("from").value;
+          const currencyTo = document.getElementById("to").value;
+
+          if (isNaN(amount)) {
+            alert("Please enter a valid amount");
+            return;
+          }
+
+          const exchangeRates = {
+            USD: { EUR: 0.85, GBP: 0.75, INR: 74.5 },
+            EUR: { USD: 1.18, GBP: 0.88, INR: 87.5 },
+            GBP: { USD: 1.33, EUR: 1.14, INR: 99.5 },
+            INR: { USD: 0.013, EUR: 0.011, GBP: 0.01 },
+          };
+
+          // Conversion logic
+          if (currencyFrom === currencyTo) {
+            document.getElementById("resultContainer").innerHTML =
+              "No conversion needed (same currencies selected).";
+          } else {
+            const rate = exchangeRates[currencyFrom][currencyTo];
+            const convertedAmount = (amount * rate).toFixed(2);
+            document.getElementById(
+              "resultContainer"
+            ).innerHTML = `Converted Amount is : ${convertedAmount} ${currencyTo}`;
+          }
+        });
+    </script>
+  </body>
+</html>

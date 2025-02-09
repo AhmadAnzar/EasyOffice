@@ -1,0 +1,128 @@
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    color: #333;
+  }
+
+  .main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  h1 {
+    color: rgb(46, 7, 7); /* White for best contrast */
+    text-shadow: 2px 2px 4px rgba(172, 163, 30, 0.5); /* Soft shadow for better readability */
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Form Elements */
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: #333;
+  }
+
+  input[type="time"],
+  select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+
+  #convertButton {
+    background: linear-gradient(135deg, #21dae7, #9733ee);
+    color: white;
+    padding: 15px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    justify-content: center;
+    width: 50%;
+    margin: 10px auto;
+    display: block;
+    font-weight: 600;
+  }
+  /* Original Return Home Button Style */
+  .cool-button {
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+    margin: 20px auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 20px;
+  }
+
+  .cool-button::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(0, 0, 0, 0) 70%
+    );
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+  }
+
+  .cool-button:hover::before {
+    opacity: 1;
+  }
+
+  .cool-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+  }
+
+  .cool-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(255, 105, 180, 0.3);
+  }
